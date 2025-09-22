@@ -41,7 +41,7 @@ def train_and_extract_rules(data):
 # ==============================
 st.title("Phân lớp bệnh nhân tiểu đường bằng Cây quyết định")
 
-uploaded_file = st.file_uploader("📂 Upload file CSV (có cột Outcome)", type="csv")
+uploaded_file = st.file_uploader("Upload file CSV (có cột Outcome)", type="csv")
 
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
@@ -58,4 +58,5 @@ if uploaded_file is not None:
     st.subheader("Luật IF – THEN")
     for r in rules:
         st.text(r)
+
 

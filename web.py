@@ -39,22 +39,23 @@ def train_and_extract_rules(data):
 # ==============================
 # Streamlit UI
 # ==============================
-st.title("🌳 Phân lớp bệnh nhân tiểu đường bằng Cây quyết định")
+st.title("Phân lớp bệnh nhân tiểu đường bằng Cây quyết định")
 
 uploaded_file = st.file_uploader("📂 Upload file CSV (có cột Outcome)", type="csv")
 
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
-    st.subheader("📊 Dữ liệu ban đầu")
+    st.subheader("Dữ liệu ban đầu")
     st.write(data.head())
 
     acc, tree_rules, rules = train_and_extract_rules(data)
 
-    st.success(f"🎯 Accuracy: {acc*100:.2f}%")
+    st.success(f"Accuracy: {acc*100:.2f}%")
 
-    st.subheader("🌳 Cây quyết định")
+    st.subheader("Cây quyết định")
     st.text(tree_rules)
 
-    st.subheader("📜 Luật IF – THEN")
+    st.subheader("Luật IF – THEN")
     for r in rules:
         st.text(r)
+
